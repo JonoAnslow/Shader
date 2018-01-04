@@ -25,16 +25,28 @@
     <Filter Include="Core">
       <UniqueIdentifier>{b1aa2f05-75db-493f-afd2-5c21ddb84c18}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{824368d9-d3fd-4d42-bf31-52670a6c4df6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Init">
+      <UniqueIdentifier>{1aee6337-7c46-4ac9-a676-f67410757c8b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\ShaderLoader.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Core\GameModel.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\ShaderManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Init\InitGLEW.cpp">
+      <Filter>Core\Init</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Init\InitGLUT.cpp">
+      <Filter>Core\Init</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,11 +77,26 @@
     <ClInclude Include="Core\GameModel.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\ShaderLoader.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Core\VertexFormat.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\ShaderManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\WindowInfo.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\ContextInfo.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\FrameBufferInfo.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\InitGLEW.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\InitGLUT.h">
+      <Filter>Core\Init</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

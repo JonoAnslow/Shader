@@ -1,15 +1,16 @@
-#include "..\Dependencies\glew\glew.h"
+/**#include "..\Dependencies\glew\glew.h"
 #include "..\Dependencies\freeglut\freeglut.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
 
-#include "Core\ShaderLoader.h"
+#include "Managers\ShaderManager.h"
 #include "Core\GameModel.h"
 
-using namespace Core;
+using namespace Managers;
 
 Model::GameModel* gameModels;
+ShaderManager* shaderManager;
 GLuint program;
 
 void renderScene(void)
@@ -36,40 +37,26 @@ void init()
 	gameModels = new Model::GameModel();
 	gameModels->createTriangleModel("triangle1");
 
-	ShaderLoader shaderLoader;
-	program = shaderLoader.createProgram("Shaders\\Vertex Shaders\\VertexShader.glsl",
+	shaderManager = new ShaderManager();
+	shaderManager->createProgram("Basic Shader", "Shaders\\Vertex Shaders\\VertexShader.glsl",
 		"Shaders\\Fragment Shaders\\FragmentShader.glsl");
-
+	program = ShaderManager::getShader("Basic Shader");
+	
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-}
+}**/
+#include "Core\Init\InitGLUT.h"
+using namespace Core;
+using namespace Init;
 
 int main(int argc, char** argv)
 {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-	glutInitWindowPosition(200, 200);
-	glutInitWindowSize(800, 600);
-	glutCreateWindow("OpenGL First Window");	
-	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
-	
-	glewInit();
-	if (glewIsSupported("GL_VERSION_4_5"))
-	{
-		std::cout << " OpenGL Version is 4.5\n ";
-	}
-	else
-	{
-		std::cout << "OpenGL 4.5 not supported\n ";
-	}
+	WindowInfo window(std::string("Basic"), 400, 200, 800, 600, true);
 
-	init();
-	// register callbacks
-	glutDisplayFunc(renderScene);
-	glutCloseFunc(closeCallback);
+	ContextInfo context(4, 5, true);
+	FrameBufferInfo frameBufferInfo(true, true, true, true);
+	InitGLUT::init(window, context, frameBufferInfo);
 
-	glutMainLoop();
+	InitGLUT::run();
 
-	delete gameModels;
-	glDeleteProgram(program);
 	return 0;
 }

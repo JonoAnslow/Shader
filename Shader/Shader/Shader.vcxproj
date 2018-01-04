@@ -123,8 +123,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\GameModel.cpp" />
-    <ClCompile Include="Core\ShaderLoader.cpp" />
+    <ClCompile Include="Core\Init\InitGLEW.cpp" />
+    <ClCompile Include="Core\Init\InitGLUT.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Managers\ShaderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Dependencies\freeglut\freeglut.h" />
@@ -136,8 +138,13 @@
     <ClInclude Include="..\Dependencies\glew\glxew.h" />
     <ClInclude Include="..\Dependencies\glew\wglew.h" />
     <ClInclude Include="Core\GameModel.h" />
-    <ClInclude Include="Core\ShaderLoader.h" />
+    <ClInclude Include="Core\Init\ContextInfo.h" />
+    <ClInclude Include="Core\Init\FrameBufferInfo.h" />
+    <ClInclude Include="Core\Init\InitGLEW.h" />
+    <ClInclude Include="Core\Init\InitGLUT.h" />
+    <ClInclude Include="Core\Init\WindowInfo.h" />
     <ClInclude Include="Core\VertexFormat.h" />
+    <ClInclude Include="Managers\ShaderManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
